@@ -1,7 +1,6 @@
 body {
   margin: 0;
   /*background-image: url("../images/dark-triangles.png")*/
-  background-color: RGB(39, 158, 134);
 }
 form{
   height: 100%;
@@ -12,7 +11,7 @@ form{
   grid-template-columns: 1fr 5fr 2fr 2fr;
   grid-template-rows: 15vh;
   border-bottom: 0px solid white;
-  /*background-color: #ECCE8E;*/
+  background-color: RGB(39, 158, 134);
 }
 .popcorn {
   height: 75%; 
@@ -103,11 +102,34 @@ textarea:focus, input:focus{
 .myfooter {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 15vh;
+  grid-template-rows: 25vh;
 }
 .footerbackground {
   grid-row: 1;
   grid-column: 1;
-  background-image: url("../images/diagmonds.png");
+  background-image: url("hypnotize.png");
   background-repeat: repeat;
+  text-align: center;
+  font-family: "Helvetica-light";
+  font-size: 3vw;
+  line-height: 25vh;
+}
+.genrecontent{
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: 37.5vh 37.5vh;
+  grid-gap: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  background-image: url("hypnotize.png");
+}
+.genre {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 75%;
+  font-family: "Helvetica-light";
+  font-size: 3vw;
+  text-align: center;
+  background-color: RGB(39, 158, 134);
 }
