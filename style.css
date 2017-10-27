@@ -133,3 +133,20 @@ textarea:focus, input:focus{
   text-align: center;
   background-color: RGB(39, 158, 134);
 }
+.genresrc{
+  max-height: 100%;
+  max-width: 100%;
+}
+.title{
+  color: white;
+}
+.title:hover{
+  color: grey;
+}
+.title > a{
+  color: white;
+  text-decoration: none;
+}
+.title > a:hover{
+  color: yellow;
+}
