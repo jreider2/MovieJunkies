@@ -107,7 +107,7 @@ textarea:focus, input:focus{
 .footerbackground {
   grid-row: 1;
   grid-column: 1;
-  background-image: url("hypnotize.png");
+  background-image: url("/images/hypnotize.png");
   background-repeat: repeat;
   text-align: center;
   font-family: "Helvetica-light";
@@ -116,13 +116,13 @@ textarea:focus, input:focus{
 }
 .genrecontent{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 3fr 3fr;
   grid-template-rows: 37.5vh 37.5vh;
   grid-gap: 20px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  background-image: url("hypnotize.png");
+  background-image: url("/images/hypnotize.png");
 }
 .genre {
   display: grid;
@@ -153,6 +153,7 @@ textarea:focus, input:focus{
 @media only screen and (max-width: 756px) {
   .genrecontent{
     grid-template-columns: 1fr;
+    grid-template-rows: 37.5vh;
     grid-auto-rows: 37.5vh;
   }
 }
