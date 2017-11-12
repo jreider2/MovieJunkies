@@ -150,6 +150,10 @@ textarea:focus, input:focus{
 .title > a:hover{
   color: yellow;
 }
-#login:hover{
-  color: yellow;
+@media only screen and (max-width: 756px) {
+  .genrecontent{
+    grid-template-columns: 1fr;
+    grid-template-rows: 37.5vh;
+    grid-auto-rows: 37.5vh;
+  }
 }
