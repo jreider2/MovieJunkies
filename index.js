@@ -1,35 +1,13 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStategy = require('passport-local').Strategy;
 
 // getting-started.js
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
-mongoose.Promise = global.Promise;
-var UserSchema = new mongoose.Schema({
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-      trim: true
-    },
-    username: {
-      type: String,
-      unique: true,
-      required: true,
-      trim: true
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    passwordConf: {
-      type: String,
-      required: true,
-    }
-  });
-  var User = mongoose.model('User', UserSchema);
-  module.exports = User;
 
 
 var server_port = 3000;
