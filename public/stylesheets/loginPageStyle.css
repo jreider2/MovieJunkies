@@ -19,7 +19,6 @@ body {
     grid-template-columns: 1fr 4fr 1fr;
 }
 
-
 header{
     grid-row: 2;
     grid-column: 2;
@@ -60,8 +59,8 @@ form {
     margin: 20px;
     height: 100%;
     /* border: 2px solid #4CAF50;  */
+    
 }
-
 form input{
     padding: 5px;
     margin: 10px;
@@ -73,16 +72,6 @@ form input{
 
 a {
     font-size: 1.2em;
-}
-#creatAnAccount {
-    color: white;
-    text-decoration: none;
-    margin: 2vh;
-    padding: 20px;
-    /* border: 2px solid #4CAF50;  */
-}
-#creatAnAccount:hover{
-    color: yellow;
 }
 .button {
     border-radius: 10px;
@@ -96,6 +85,10 @@ a {
 .button:hover{
     color: yellow;
 }
+.signInDiv{
+    display:block;
+    text-align:center;
+}
 
 @media (max-width: 1205px)
 { 
@@ -107,6 +100,19 @@ a {
         word-wrap: break-word;
     }
 }
+
+/*
+#creatAnAccount {
+    color: white;
+    text-decoration: none;
+    margin: 2vh;
+    padding: 20px;
+    // border: 2px solid #4CAF50; 
+}
+#creatAnAccount:hover{
+    color: yellow;
+}
+*/
 
 /* header{
     grid-row: 2;

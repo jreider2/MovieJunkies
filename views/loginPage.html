@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>MovieJunkiesLogin</title>
     <link rel="stylesheet" href="./stylesheets/loginPageStyle.css">
 </head>
@@ -16,15 +20,45 @@
     <main>
          <!-- <form action="the url to send the form data to" method="type of HTTP request"> -->
         <form id="loginForm">
-            <input type="text" name="username" placeholder="username">
+            <div class="signInDiv"><a class="g-signin2" data-onsuccess="onSignIn"></a></div>
             <br>
-            <input type="password" name="password" placeholder="password">
+            <a class="button" href="index.html">Main Page</a>
             <br>
-            <a class="button" href="index.html">login</a>
-            <p>
-                <a id="creatAnAccount">create an account</a> 
-            </p>
+            <a id="signOut" class="button" href="#" onclick="signOut();">Sign out</a> <!--deleted: onclick="signOut();"-->
         </form>
     </main>
+    <script>
+        function onSignIn(googleUser) {
+          // Useful data for your client-side scripts:
+          var profile = googleUser.getBasicProfile();
+          console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+          console.log('Full Name: ' + profile.getName());
+          console.log('Given Name: ' + profile.getGivenName());
+          console.log('Family Name: ' + profile.getFamilyName());
+          console.log("Image URL: " + profile.getImageUrl());
+          console.log("Email: " + profile.getEmail());
+  
+          // The ID token you need to pass to your backend:
+          var id_token = googleUser.getAuthResponse().id_token;
+          console.log("ID Token: " + id_token);
+        };
+    </script>
+    <!--<script type="text/javascript" src="/scripts/sign.js" ></script> -->
+    <script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+    }
+    </script>
+    
 </body>
 </html>
+
+<!--
+//google single sign in client ID: 332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com
+//client secret:  jVBhLfz27j3rV2itZVTwLecL
+-->
+
+
