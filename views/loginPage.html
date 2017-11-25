@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>MovieJunkiesLogin</title>
     <link rel="stylesheet" href="./stylesheets/loginPageStyle.css">
@@ -22,28 +22,39 @@
         <form id="loginForm">
             <div class="signInDiv"><a class="g-signin2" data-onsuccess="onSignIn"></a></div>
             <br>
-            <a class="button" href="index.html">Main Page</a>
+            <a class="button" href="/veiws/index.html">Main Page</a>
             <br>
             <a id="signOut" class="button" href="#" onclick="signOut();">Sign out</a> <!--deleted: onclick="signOut();"-->
         </form>
     </main>
     <script>
         function onSignIn(googleUser) {
-          // Useful data for your client-side scripts:
-          var profile = googleUser.getBasicProfile();
-          console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-          console.log('Full Name: ' + profile.getName());
-          console.log('Given Name: ' + profile.getGivenName());
-          console.log('Family Name: ' + profile.getFamilyName());
-          console.log("Image URL: " + profile.getImageUrl());
-          console.log("Email: " + profile.getEmail());
-  
-          // The ID token you need to pass to your backend:
-          var id_token = googleUser.getAuthResponse().id_token;
-          console.log("ID Token: " + id_token);
-        };
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            
+            //var id = profile.getId();
+            //var profileId = {"id":profile.getId()};
+            $.post( "userIdPost", {"id":profile.getId()}, function( data ) { //see jQuery docs for sending an array
+                console.log( data.status ); // John
+            }, "json");
+
+            //post new note to server
+            var newNote = {"created":"createdText", "note":"noteText"};
+            $.post("notes", newNote, function (response) {
+                console.log("server post response returned..." + response.message);
+            });
+
+            //var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
+            // if (auth2.isSignedIn.get()) {
+            //     var profile = auth2.currentUser.get().getBasicProfile();
+            //     console.log('ID: ' + profile.getId());
+            //}
+        }
     </script>
-    <!--<script type="text/javascript" src="/scripts/sign.js" ></script> -->
     <script>
     function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
@@ -52,6 +63,7 @@
             });
     }
     </script>
+    <!--<script type="text/javascript" src="/scripts/sign.js" ></script> -->
     
 </body>
 </html>
@@ -60,5 +72,3 @@
 //google single sign in client ID: 332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com
 //client secret:  jVBhLfz27j3rV2itZVTwLecL
 -->
-
-
