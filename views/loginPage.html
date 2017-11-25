@@ -22,42 +22,37 @@
         <form id="loginForm">
             <div class="signInDiv"><a class="g-signin2" data-onsuccess="onSignIn"></a></div>
             <br>
-            <a class="button" href="index.html">Main Page</a>
+            <a class="button" href="/veiws/index.html">Main Page</a>
             <br>
             <a id="signOut" class="button" href="#" onclick="signOut();">Sign out</a> <!--deleted: onclick="signOut();"-->
         </form>
     </main>
     <script>
         function onSignIn(googleUser) {
-
-            //var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
-
             // Useful data for your client-side scripts:
             var profile = googleUser.getBasicProfile();
             console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        
-            if (auth2.isSignedIn.get()) {
-                var profile = auth2.currentUser.get().getBasicProfile();
-            //     console.log('ID: ' + profile.getId()); console.log('Full Name: ' + profile.getName()); console.log('Given Name: ' + profile.getGivenName());
-            //     console.log('Family Name: ' + profile.getFamilyName());console.log('Image URL: ' + profile.getImageUrl());  console.log('Email: ' + profile.getEmail());
-            }
-
-            //Google's suggestion for sending ID token to backend
-            var id_token = googleUser.getAuthResponse().id_token;
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'sendToken');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                console.log('Signed in as: ' + xhr.responseText); //or use .responseXML
-                //trying to get a response....   
-                //console.log(xhr.responseText + " = response text?")//https://xhr.spec.whatwg.org/
-            }; 
-            xhr.send('idtoken=' + id_token);
             
+            //var id = profile.getId();
+            //var profileId = {"id":profile.getId()};
+            $.post( "userIdPost", {"id":profile.getId()}, function( data ) { //see jQuery docs for sending an array
+                console.log( data.status ); // John
+            }, "json");
+
+            //post new note to server
+            var newNote = {"created":"createdText", "note":"noteText"};
+            $.post("notes", newNote, function (response) {
+                console.log("server post response returned..." + response.message);
+            });
+
+            //var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
+            // if (auth2.isSignedIn.get()) {
+            //     var profile = auth2.currentUser.get().getBasicProfile();
+            //     console.log('ID: ' + profile.getId());
+            //}
         }
     </script>
     <script>
@@ -77,5 +72,3 @@
 //google single sign in client ID: 332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com
 //client secret:  jVBhLfz27j3rV2itZVTwLecL
 -->
-
-
