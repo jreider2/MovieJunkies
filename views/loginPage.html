@@ -30,7 +30,7 @@
     <script>
         function onSignIn(googleUser) {
 
-            var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
+            //var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
 
             // Useful data for your client-side scripts:
             var profile = googleUser.getBasicProfile();
@@ -41,18 +41,13 @@
         
             if (auth2.isSignedIn.get()) {
                 var profile = auth2.currentUser.get().getBasicProfile();
-            //     console.log('ID: ' + profile.getId());
-            //     console.log('Full Name: ' + profile.getName());
-            //     console.log('Given Name: ' + profile.getGivenName());
-            //     console.log('Family Name: ' + profile.getFamilyName());
-            //     console.log('Image URL: ' + profile.getImageUrl());
-            //     console.log('Email: ' + profile.getEmail());
+            //     console.log('ID: ' + profile.getId()); console.log('Full Name: ' + profile.getName()); console.log('Given Name: ' + profile.getGivenName());
+            //     console.log('Family Name: ' + profile.getFamilyName());console.log('Image URL: ' + profile.getImageUrl());  console.log('Email: ' + profile.getEmail());
             }
 
-            var id_token = googleUser.getAuthResponse().id_token;
-        
-            //TODO put this in a then block after the onSignIn is over? 
             //Google's suggestion for sending ID token to backend
+            var id_token = googleUser.getAuthResponse().id_token;
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'sendToken');
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -62,8 +57,6 @@
                 //console.log(xhr.responseText + " = response text?")//https://xhr.spec.whatwg.org/
             }; 
             xhr.send('idtoken=' + id_token);
-            
-            //var returnedObj = xhr.send('idtoken=' + id_token);
             
         }
     </script>
