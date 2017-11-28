@@ -7,7 +7,6 @@ var CLIENT_ID = "332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleuserco
 var auth = new GoogleAuth;
 var client = new auth.OAuth2(CLIENT_ID, '', '');
 //var XMLHttpRequest = require('xhr2'); //npm install xhr2
-
 var http = require("http");
 var bodyParser = require("body-parser");
 
@@ -43,7 +42,7 @@ app.get('/login', function(req,res) {
     res.sendFile(__dirname + '/views/loginPage.html');
 });
 app.get('/genre/horror', function(req,res) {
-    res.sendFile(__dirname + '/views/horrorPage.html');
+    res.sendFile(__dirname + '/views/movieSelection.html');
 });
 
 //Recieve id from sign in 

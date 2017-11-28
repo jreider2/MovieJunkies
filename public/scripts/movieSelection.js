@@ -1,3 +1,33 @@
+
+
+
+$("#horror").click(function()
+{   
+    for(i = 0; i < moviesArray.length; i++)
+    {
+        if(moviesArray[i].genre == 'Horror')
+        {
+            //check correct movies being accessed
+            console.log(moviesArray[i].movie);
+            
+            //create image element
+            var imgTemp = $("<img>"); 
+            //add src attribute with correct path
+            imgTemp.attr("src", moviesArray[i].portrait);
+            //add class attrbute for good styling 
+            imgTemp.attr("class", "images");
+
+            //create figure element
+            var figTemp = $("<figure>");
+            //edit figure element's html (put the image element inside it)
+            figTemp.html(imgTemp);
+            
+            //append to DOM
+            $("#imageGrid").append(figTemp);
+        }
+    }
+});
+
 var moviesArray =
 [
     {
@@ -505,34 +535,4 @@ var moviesArray =
         landscape: "/Movie Images/Landscape/The Revenant.jpg"
     },
    
-   
 ]
-
-
-
-$("#horror").click(function()
-{   alert("I have been clicked Supreme Being")
-    for(i = 0; i < moviesArray.length; i++)
-    {
-        if(moviesArray[i].genre == 'Horror')
-        {
-            //check correct movies being accessed
-            console.log(moviesArray[i].movie);
-            
-            //create image element
-            var imgTemp = $("<img>"); 
-            //add src attribute with correct path
-            imgTemp.attr("src", moviesArray[i].portrait);
-            //add class attrbute for good styling 
-            imgTemp.attr("class", "images");
-
-            //create figure element
-            var figTemp = $("<figure>");
-            //edit figure element's html (put the image element inside it)
-            figTemp.html(imgTemp);
-            
-            //append to DOM
-            $("#imageGrid").append(figTemp);
-        }
-    }
-});
