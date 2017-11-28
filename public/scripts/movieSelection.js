@@ -1,6 +1,4 @@
 
-
-
 $("#horror").click(function()
 {   
     for(i = 0; i < moviesArray.length; i++)
