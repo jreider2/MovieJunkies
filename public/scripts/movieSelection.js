@@ -16,7 +16,7 @@ function appLogic() {
 
     //check elements exists
     function checkExist(element) {
-    //check specified elements or not - return boolean
+        //check specified elements or not - return boolean
         if (element.length) {
             return true;
         } else {
@@ -25,9 +25,7 @@ function appLogic() {
     }
 
     function createFigure(imgSrc) {
-        //build button
-        //var $button = $('<button class="'+buttonClass+'">'+buttonText+'</button>');
-
+        
         //create image element
         var $imgTemp = $("<img>"); 
         //add src attribute with correct path
@@ -71,6 +69,7 @@ function appLogic() {
         //check if any images currently exist there 
         //TODO -- use checkExist() function already written above 
         //if images exist, delete them all
+            //see "handle delection of all notes" section in hayward github week11/travel-notes-series3/demo2/assets/scrits/travel.js for detail"
 
         //append images from horror to imageGrid in DOM
         createMovieSelection('Horror');
@@ -87,6 +86,26 @@ function appLogic() {
         $(".movieList").fadeIn("slow");
 
     });
+
+
+
+    //This is a good example of how to create handlers for
+    //dynamically created elements:
+
+    //handle click event per note
+    //$(".note-output").on("click", "p", function() 
+    //{
+        //check if other delete buttons visible
+        
+        //then handle click event for current note
+        
+    //});
+
+    //another helpful means of building new complex elements: 
+    //var $button = $('<button class="'+buttonClass+'">'+buttonText+'</button>');
+
+
+
 
     var moviesArray =
     [
