@@ -67,7 +67,7 @@ body
 {
     height: 100%;
 }
-.main
+.movieList
 {
     background-image: url("/images/hypnotize.png");
     /*background-color: rgba(32, 31, 31, 0.2);*/
