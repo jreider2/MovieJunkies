@@ -1,7 +1,16 @@
+/* "html" ruleset is styling merged from movie selection page */
+html
+{
+    height: 100%;
+}
 body {
   margin: 0;
-  /*background-image: url("../images/dark-triangles.png")*/
+  /* "height" rule is styling merged from movie selection page */
+  height: 100%;
+  
 }
+
+/* The css for the navbar can probably be moved into it's own stylesheet */
 form{
   height: 100%;
   width: 100%;
@@ -114,6 +123,7 @@ textarea:focus, input:focus{
   font-size: 3vw;
   line-height: 25vh;
 }
+
 .genrecontent{
   display: grid;
   grid-template-columns: 3fr 3fr 3fr;
@@ -124,6 +134,7 @@ textarea:focus, input:focus{
   margin-top: 20px;
   background-image: url("/images/hypnotize.png");
 }
+
 .genre {
   display: grid;
   grid-template-columns: 1fr;

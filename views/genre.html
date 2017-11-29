@@ -1,38 +1,57 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+        
 
+        <link rel="stylesheet" href="../stylesheets/navBar.css">
         <link rel="stylesheet" href="./stylesheets/genre.css">
+        <link rel="stylesheet" href="../stylesheets/movieSelection.css">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
     </head>
     <body style="background-image: url('/images/hypnotize.png')">
       <nav class="navbar">
+
         <div class="icon">
           <a href="/"><img class="popcorn" src="/images/food.svg"></a>
         </div>
+
         <div class="navlinks">
           <a href="/genre"> Genre </a>
           <a href="/decade"> Decade </a>
           <a href="/games"> Games </a>
           <a href="/tutorial"> Tutorial </a>
         </div>
+
         <div class="searchbar">
           <form>
             <input class="searchinput" type="text"></input>
           </form>
+
           <img class="searchsvg" src="/images/magnifier.svg">
+
         </div>
+
         <div class="login">
           <a href="/login"> Login / Register </a>
         </div>
+
       </nav>
-      <section class="genrecontent">
+
+      <section class="genrecontent" >
+
           <div id="action" class="genre">
             <div class="title">
-              <a href="/genre/action">Action/Adventure</a>
+              <a>Action/Adventure</a>
             </div>
             <div class="genreimage">
               <img class="genresrc" src="/images/avatar.jpg">
@@ -40,35 +59,47 @@
           </div>
           <div id="comedy" class="genre">
             <div class="title">
-              <a href="/genre/comedy">Comedy</a>
+              <a>Comedy</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/images/rush_hour.jpg"></div>
           </div>
           <div id="sci-fi" class="genre">
             <div class="title">
-                <a href="/genre/scifi">Sci-Fi</a>
+                <a>Sci-Fi</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/images/ex_machina.jpg"></div>
           </div>
           <div id="drama" class="genre">
             <div class="title">
-                <a href="/genre/drama">Drama</a>
+                <a>Drama</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/images/donnie_darko.jpg"></div>
           </div>
           <div id="horror" class="genre">
             <div class="title">
-                <a href="/genre/horror">Horror</a>
+                <a>Horror</a>
             </div>
-            <div class="genreimage"><img class="genresrc" src="/images/Silence of the lambs_Portrait.jpg"></div>
+            <div class="genreimage"><img id="horror" class="genresrc" src="/images/Silence of the lambs_Portrait.jpg"></div>
           </div>
           <div id="thriller" class="genre">
             <div class="title">
-                <a href="/genre/thriller">Thriller</a>
+                <a>Thriller</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/images/shutter_island.jpg"></div>
           </div>
       </section>
-      </footer>
+
+    <section class="movieList">
+          
+      <h1 id="movieListGenreHeading"></h1>
+          
+      <div id="imageGrid">
+                     
+      </div>
+          
+    </section>
+              
+    <script src="/scripts/movieSelection.js"></script>    
+      
     </body>
 </html>
