@@ -25,7 +25,6 @@ header{
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
-    
 }
 .icon {
     grid-column: 1;
@@ -45,6 +44,10 @@ header{
     padding-left: 3px;
     /* background-color: purple; */
 }
+#title:hover{
+    color: yellow;
+
+}
 
 main { 
     grid-row: 3;
@@ -55,39 +58,43 @@ main {
 
 form {
     /* background-color: pink; */
-    padding: 30px;
+    padding: 40px;
     margin: 20px;
     height: 100%;
     /* border: 2px solid #4CAF50;  */
-    
-}
-form input{
-    padding: 5px;
-    margin: 10px;
-    font-size: 1.1em;
-    border-radius: 10px;
-    border: solid 5px #dcdcdc;
-    /* transition: box-shadow 0.3s, border 0.3s; */
-}
-
-a {
     font-size: 1.2em;
 }
+
+/* add some flex with items*/
+.flex-container {
+    display:flex;
+    flex-direction: row;
+    /* flex-wrap: wrap;
+    justify-content: flex-start; */
+    justify-content: space-around;
+}
+
 .button {
-    border-radius: 10px;
-    /* border: 2px solid #4CAF50;  */
-    padding: 6px;
-    margin: 4px 2px;
+    
+    padding: 10px;
+    margin: 10px;
     cursor: pointer;
     text-decoration: none;
     color: white;
 }
+
 .button:hover{
     color: yellow;
 }
-.signInDiv{
-    display:block;
-    text-align:center;
+
+.flex-container2{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 190px;
+}
+flex-item2{
+    flex-grow: 1;
 }
 
 @media (max-width: 1205px)
@@ -101,88 +108,3 @@ a {
     }
 }
 
-/*
-#creatAnAccount {
-    color: white;
-    text-decoration: none;
-    margin: 2vh;
-    padding: 20px;
-    // border: 2px solid #4CAF50; 
-}
-#creatAnAccount:hover{
-    color: yellow;
-}
-*/
-
-/* header{
-    grid-row: 2;
-    grid-column: 2;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-}
-.icon {
-    grid-column: 1;
-    max-height: 100px;
-    max-width: 100px;
-    height: 1vh;
-    width: auto;
-    padding: 5px;
-    margin: 5px;
-    
-}
-#title {
-    grid-column: 2;
-    font-size: 5vw;
-    letter-spacing: 3.5px;
-    margin: 10px;
-    padding-left: 3px;
-    
-}
-
-main { 
-    grid-row: 3;
-    grid-column: 2;
-    
-    text-align: center;
-}
-
-form {
-    padding: 30px;
-    margin: 20px;
-    height: 100%;
-    
-}
-
-form input{
-    padding: 5px;
-    margin: 10px;
-    font-size: 1.1em;
-    border-radius: 10px;
-    border: solid 5px #dcdcdc;
-    
-}
-
-a {
-    font-size: 1.2em;
-}
-#creatAnAccount {
-    color: white;
-    text-decoration: none;
-    margin: 2vh;
-    padding: 20px;
-}
-#creatAnAccount:hover{
-    color: yellow;
-}
-.button {
-    border-radius: 10px;
-    padding: 6px;
-    margin: 4px 2px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-}
-.button:hover{
-    color: yellow;
-} */
