@@ -223,7 +223,7 @@ function appLogic()
 
     // used for decade images
 
-    $("#80s").click(function()
+    $("#_80s").click(function()
     {   
         if (checkIsVisible($(".movieList")) === true) 
         {
@@ -243,7 +243,7 @@ function appLogic()
 
     });
 
-    $("#90s").click(function()
+    $("#_90s").click(function()
     {   
         if (checkIsVisible($(".movieList")) === true) 
         {
@@ -263,7 +263,7 @@ function appLogic()
 
     });
 
-    $("#2000s").click(function()
+    $("#_2000s").click(function()
     {   
         if (checkIsVisible($(".movieList")) === true) 
         {
@@ -283,7 +283,7 @@ function appLogic()
 
     });
 
-    $("#2010-Current").click(function()
+    $("#_2010-Current").click(function()
     {   
         if (checkIsVisible($(".movieList")) === true) 
         {
