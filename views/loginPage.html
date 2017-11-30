@@ -18,13 +18,15 @@
         <h1 id="title">Movie Junkies</h1>
     </header>
     <main>
-         <!-- <form action="the url to send the form data to" method="type of HTTP request"> -->
-        <form id="loginForm">
-            <div class="signInDiv"><a class="g-signin2" data-onsuccess="onSignIn"></a></div>
+        <form class="flex-container2">
+            <div class="flex-container flex-item2">
+                <div></div>
+                <div class="signInDiv g-signin2 flex-item" data-onsuccess="onSignIn"></div>
+                <div></div>
+            </div>
             <br>
-            <a class="button" href="/veiws/index.html">Main Page</a>
-            <br>
-            <a id="signOut" class="button" href="#" onclick="signOut();">Sign out</a> <!--deleted: onclick="signOut();"-->
+            <div id="signOut button flex-item2" href="#" onclick="signOut();">Sign out</div>
+            <div class="button flex-item2" href="/">Main Page</div>
         </form>
     </main>
     <script>
@@ -42,17 +44,12 @@
                 console.log( data.status ); // John
             }, "json");
 
-            //post new note to server
-            var newNote = {"created":"createdText", "note":"noteText"};
-            $.post("notes", newNote, function (response) {
-                console.log("server post response returned..." + response.message);
-            });
+            // //post new note to server TEST 
+            // var newNote = {"created":"createdText", "note":"noteText"};
+            // $.post("notes", newNote, function (response) {
+            //     console.log("server post response returned..." + response.message);
+            // });
 
-            //var auth2 = gapi.auth2.init({ client_id: '332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com'});
-            // if (auth2.isSignedIn.get()) {
-            //     var profile = auth2.currentUser.get().getBasicProfile();
-            //     console.log('ID: ' + profile.getId());
-            //}
         }
     </script>
     <script>
