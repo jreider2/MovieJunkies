@@ -4,6 +4,7 @@ function appLogic()
     "use strict";
 
     $(".movieList").hide();
+    $(".movieDiscription").hide();
 
     //check element visibility - expects single element relative to display:none
     function checkIsVisible(element) 
@@ -49,8 +50,20 @@ function appLogic()
         return $figTemp;
     }
 
+    function isGenre(category){
+        if(category == "80's" | category== "90's" | category == "2000's" | category == "2010-Current") //finish filling in all genres 
+        {
+            return false;// it is a decade 
+        }else{
+            return true;// it is a genre 
+        }
+    }
+
     function createMovieSelection(genre)
     {
+        //TODO use isGenre function 
+            //if it is a genre only look at genre attribute 
+            //if it is a decade only look at the decade attribute 
 
         for(var i = 0; i < moviesArray.length; i++)
         {
