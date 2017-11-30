@@ -159,7 +159,43 @@ textarea:focus, input:focus{
   color: RGB(39, 158, 134);
   text-decoration: none;
 }
-.title > a:hover{
+/*.title > a:hover{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}*/
+#action:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#comedy:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#sci-fi:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#drama:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#horror:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#thriller:hover
+{
   color: rgb(39, 158, 134);
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 2px;
