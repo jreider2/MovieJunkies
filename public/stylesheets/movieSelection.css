@@ -99,3 +99,8 @@ h1
     /*text-shadow: 2px 2px rgb(39, 158, 134);*/
     
 }
+
+#movieListGenreHeading
+{
+    font-size: 60px;
+}

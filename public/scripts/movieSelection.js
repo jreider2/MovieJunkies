@@ -63,6 +63,17 @@ function appLogic()
                 $("#imageGrid").append(figTemp);
                 
             }
+
+            //This is used for the decade loop
+
+            if(moviesArray[i].decade == genre)
+            {
+                 //create figure element 
+                 var figTemp = createFigure(moviesArray[i].portrait);
+                 
+                //append to DOM
+                $("#imageGrid").append(figTemp);
+            }
         }
     }
 
@@ -178,7 +189,6 @@ function appLogic()
 
     $("#drama").click(function()
     {   
-        //check visibility of movie list 
         if (checkIsVisible($(".movieList")) === true) 
         {
             $(".movieList").hide();
@@ -198,6 +208,87 @@ function appLogic()
     });
 
 
+    // used for decade images
+
+    $("#80s").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection("80's");
+
+        $("#movieListGenreHeading").html("80's");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#90s").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection("90's");
+
+        $("#movieListGenreHeading").html("90's");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#2000s").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection("2000's");
+
+        $("#movieListGenreHeading").html("2000's");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#2010-Current").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection("2010-Current");
+
+        $("#movieListGenreHeading").html("2010-Current");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
+        $(".movieList").fadeIn("slow");
+
+    });
 
     //This is a good example of how to create handlers for
     //dynamically created elements:

@@ -6,7 +6,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+
         <link rel="stylesheet" href="./stylesheets/decade.css">
+        <link rel="stylesheet" href="../stylesheets/movieSelection.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     </head>
     <body style="background-image: url('/images/hypnotize.png')">
       <nav class="navbar">
@@ -32,31 +38,41 @@
       <section class="genrecontent">
           <div id="80s" class="genre">
             <div class="title">
-              <a href="/decade/80s">80's</a>
+              <a>80's</a>
             </div>
             <div class="genreimage">
               <img class="genresrc" src="/Movie Images/Landscape/E.T. the Extra-Terrestrial.jpg">
             </div>
           </div>
-          <div id="comedy" class="genre">
+          <div id="90s" class="genre">
             <div class="title">
-              <a href="/decade/90s">90's</a>
+              <a>90's</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/Movie Images/Landscape/Pulp Fiction.jpg"></div>
           </div>
-          <div id="sci-fi" class="genre">
+          <div id="2000s" class="genre">
             <div class="title">
-                <a href="/decade/2000s">2000's</a>
+                <a>2000's</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/Movie Images/Landscape/Remember the Titans.jpg"></div>
           </div>
-          <div id="drama" class="genre">
+          <div id="2010-Current" class="genre">
             <div class="title">
-                <a href="/decade/2010">2010-present</a>
+                <a>2010-Current</a>
             </div>
             <div class="genreimage"><img class="genresrc" src="/Movie Images/Landscape/The Revenant.jpg"></div>
           </div>
       </section>
+
+        <section class="movieList">    
+          <h1 id="movieListGenreHeading"></h1>
+            <div id="imageGrid">            
+            </div>  
+        </section>
+        
       </footer>
+
+      <script src="/scripts/movieSelection.js"></script>
+
     </body>
 </html>
