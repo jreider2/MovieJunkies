@@ -160,7 +160,7 @@ textarea:focus, input:focus{
   text-decoration: none;
 }
 .title > a:hover{
-  color: yellow;
+  color: grey;
 }
 @media only screen and (max-width: 756px) {
   .genrecontent{
