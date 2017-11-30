@@ -154,7 +154,32 @@ textarea:focus, input:focus{
   color: RGB(39, 158, 134);
   text-decoration: none;
 }
-.title > a:hover{
+/*.title > a:hover{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}*/
+
+#_80s:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#_90s:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#_2000s:hover
+{
+  color: rgb(39, 158, 134);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+#_2010-Current:hover
+{
   color: rgb(39, 158, 134);
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 2px;
