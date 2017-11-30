@@ -1,13 +1,16 @@
-function appLogic() {
+function appLogic() 
+{
 
     "use strict";
 
     $(".movieList").hide();
 
     //check element visibility - expects single element relative to display:none
-    function checkIsVisible(element) {
+    function checkIsVisible(element) 
+    {
         //check if element is hidden or not
-        if (element.is(":hidden")) {
+        if (element.is(":hidden")) 
+        {
             return false;
         } else {
             return true;
@@ -15,16 +18,20 @@ function appLogic() {
     }
 
     //check elements exists
-    function checkExist(element) {
+    function checkExist(element) 
+    {
         //check specified elements or not - return boolean
-        if (element.length) {
+        if (element.length) 
+        {
             return true;
-        } else {
+        } else 
+        {
             return false;
         }
     }
 
-    function createFigure(imgSrc) {
+    function createFigure(imgSrc) 
+    {
         
         //create image element
         var $imgTemp = $("<img>"); 
@@ -42,7 +49,8 @@ function appLogic() {
         return $figTemp;
     }
 
-    function createMovieSelection(genre){
+    function createMovieSelection(genre)
+    {
 
         for(var i = 0; i < moviesArray.length; i++)
         {
@@ -83,6 +91,108 @@ function appLogic() {
         } // else remain hidden
 
         //Image grid fadeIn...
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#action").click(function()
+    {   
+        
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        } 
+
+        createMovieSelection('Action/Adventure');
+
+        $("#movieListGenreHeading").html("Action/Adventure");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        } 
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#comedy").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        } 
+
+        createMovieSelection('Comedy');
+
+        $("#movieListGenreHeading").html("Comedy");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        } 
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#thriller").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection('Thriller');
+       
+        $("#movieListGenreHeading").html("Thriller");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        } 
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#sci-fi").click(function()
+    {   
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        } 
+
+        createMovieSelection('Sci-Fi');
+
+        $("#movieListGenreHeading").html("Sci-Fi");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
+        $(".movieList").fadeIn("slow");
+
+    });
+
+    $("#drama").click(function()
+    {   
+        //check visibility of movie list 
+        if (checkIsVisible($(".movieList")) === true) 
+        {
+            $(".movieList").hide();
+        }
+
+        createMovieSelection('Drama');
+
+        $("#movieListGenreHeading").html("Drama");
+
+        if (checkIsVisible($(".genrecontent")) === true) 
+        {
+            $(".genrecontent").hide();
+        }
+
         $(".movieList").fadeIn("slow");
 
     });
@@ -141,7 +251,7 @@ function appLogic() {
             movie: "Jurrasic Park",
             genre: "Action/Adventure",
             decade: "90's",
-            portrait: "/Movie Images/Portrait/Jurrasic Park.jpg",
+            portrait: "/Movie Images/Portrait/Jurassic Park.jpg",
             landscape: "/Movie Images/Landscape/Jurrasic Park.jpg",
         },
         {
