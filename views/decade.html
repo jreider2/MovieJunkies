@@ -10,6 +10,8 @@
 
         <link rel="stylesheet" href="./stylesheets/decade.css">
         <link rel="stylesheet" href="../stylesheets/movieSelection.css">
+        <link rel="stylesheet" href="../stylesheets/grid.css">
+        <link rel="stylesheet" href="../stylesheets/movieDescriptionSection.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -70,20 +72,30 @@
             </div>  
         </section>
 
-        
+
         <section class="movieDiscription">
-            
-            <h1 id="movieName">MovieName</h1>
+
+          <div class="row">
+            <div class="col-12"><h1 id= "movieName">MovieTitle</h1></div>
+          </div>
                 
-            <div id="imgDivOnMovieDiscriptionP">
-              <figure>
-                <img src= "/Movie Images/Landscape/Remember the Titans.jpg">
-              </figure>
+          <div class="row">
+    
+            <div class="col-6">
+              <div id="imgDivOnMovieDiscriptionP" class="flex-container">
+                <figure>
+                  <img id="desFig" class="flex-item" src= "/Movie Images/Landscape/Remember the Titans.jpg">
+                </figure>
+              </div>
             </div>
-      
-            <div>
+    
+            <div class="col-6">
+              <div class="synopsisDiv">
                 <p id="synopsis">movie discription</p>
+              </div>
             </div>
+    
+          </div>
                 
         </section>
 
