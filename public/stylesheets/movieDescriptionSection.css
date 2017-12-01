@@ -1,6 +1,44 @@
+
+#movieName {
+    font-size: 3em;
+}
+
+.synopsisDiv{
+    color: rgb(39, 158, 134);
+    background : white;
+    padding:40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right:20px;
+    border: 3px solid #ccc; 
+    font-family: 'Maven Pro', sans-serif;
+
+}
+.playGameButton {
+    background-color: rgb(39, 158, 134); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.playGameButton:hover {
+    background-color: white; /* Green */
+    color: rgb(39, 158, 134);
+    border: rgb(39, 158, 134);
+    border: 1px solid rgb(39, 158, 134);
+    cursor: pointer;
+}
+
 #desFig {
     height: auto;
     width: 40vw;
+    border: 3px solid rgb(39, 158, 134);
 }
 .flex-container{
     display:flex;
@@ -14,15 +52,6 @@
         height: auto;
         width: 60vw;
     }
-}
-#movieName {
-    font-size: 3em;
-}
-
-
-.synopsisDiv{
-    color: rgb(39, 158, 134);
-
 }
 
     
