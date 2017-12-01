@@ -16,13 +16,14 @@ element total widths and heights now include padding and border
   position: relative;
   float:left;
   padding:20px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 /* siblings to preceding column - specify gutter*/
 [class*="col-"] + [class*="col-"] {
   margin-left: 1.6%;
-  border: 1px solid #cd0603;
+  /*border: 1px solid #cd0603; */
+  /* border: 1px solid #ccc;  */
 }
 
 /* columns by permitted section span - eg: 2 columns, 5 columns...gutters included*/
