@@ -97,18 +97,29 @@ function appLogic()
             $(".genrecontent").hide();
         } // else remain hidden
 
-        //append correct element to DOM
-        //create movie discription page function
+        //abstract to movie discription page function:
 
         //edit heading for correct movieList section Heading
         var thisScource= $(this).attr("src"); //alert("This source = " + thisScource);
         var movieTitle = thisScource.substring(23, thisScource.length-4);
+        //alert("the movie title =" + movieTitle);
         $("#movieName").html(movieTitle);
 
         //edit img src
         var srcForLandscape = "/Movie Images/Landscape/" + movieTitle + ".jpg";
         $("#imgDivOnMovieDiscriptionP img").attr("src", srcForLandscape);
-        
+
+        var movieSynopsis = "Lorem ipsum dolor sit amet, ex" +
+        "amet erat theophrastus est, mentitum salutandi ne duo. Ei sed tota posse. "+
+        "At liber tollit accusata eam. Cum quidam euismod ne. Saepe aliquid interpretaris sea id, "+
+        "an ius facilis petentium, quis dolorum sit at. Liber delenit in cum, dolore minimum" +
+        "perfecto quo in, ea has adipisci argumentum. Lorem tamquam necessitatibus vim ea, "+ 
+        "semper deseruisse qui ut, ea mea aeque ornatus. Ei augue putant nam. Veritus ancillae argumentum vel ea. "+
+        "Qui ut utamur iuvaret consectetuer, cu saperet complectitur sed. Eu usu diceret vivendo iracundia. Sit cibo dictas "+
+        "molestiae at, erat rebum mnesarchum eum cu, dissentias contentiones in vim. Quem ancillae mentitum in per.";
+        $("#synopsis").html(movieSynopsis);
+    
+
         //Hide anything else that may be visible
         if (checkIsVisible($(".movieList")) === true) {//check visibility of movie list 
             $(".movieList").hide();
