@@ -91,14 +91,49 @@ function appLogic()
     }
 
     $(".movieList").on("click", "img", function(){
-        alert("This img was clicked.");
-        var thisScource= $(this).attr("src");
-        alert("This source = " + thisScource);
+
+        //Hide movie disctiption if it is showing
+        if (checkIsVisible($(".genrecontent")) === true) {
+            $(".genrecontent").hide();
+        } // else remain hidden
+
+        //append correct element to DOM
+        //create movie discription page function
+
+        //edit heading for correct movieList section Heading
+        var thisScource= $(this).attr("src"); //alert("This source = " + thisScource);
+        var movieTitle = thisScource.substring(23, thisScource.length-4);
+        $("#movieName").html(movieTitle);
+
+        //edit img src
+        var srcForLandscape = "/Movie Images/Landscape/" + movieTitle + ".jpg";
+        $("#imgDivOnMovieDiscriptionP img").attr("src", srcForLandscape);
+        
+        //Hide anything else that may be visible
+        if (checkIsVisible($(".movieList")) === true) {//check visibility of movie list 
+            $(".movieList").hide();
+        } // else remain hidden
+
+        if (checkIsVisible($(".genrecontent")) === true) {//check visibility of genrecontent
+            $(".genrecontent").hide();
+        } // else remain hidden
+
+        //Movie discription page fadeIn...
+        $(".movieDiscription").fadeIn("slow");
         //$(this).slideToggle();
+
+        //TODO: need to add hiding for movie desption section to pattern for other listeners: 
+        //this code: 
+        // if (checkIsVisible($(".genrecontent")) === true) {
+        //     $(".genrecontent").hide();
+        // } // else remain hidden
+
     });
 
     $("#horror").click(function()
     {   
+        //TODO: refactor to another function. perhaps called : transitionToNewSlection
+
         //check visibility of movie list 
         if (checkIsVisible($(".movieList")) === true) {
             $(".movieList").hide();
