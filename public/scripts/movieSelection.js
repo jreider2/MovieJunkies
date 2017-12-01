@@ -90,6 +90,12 @@ function appLogic()
         }
     }
 
+    $(".movieList").on("click", "img", function(){
+        alert("This img was clicked.");
+        var thisScource= $(this).attr("src");
+        alert("This source = " + thisScource);
+        //$(this).slideToggle();
+    });
 
     $("#horror").click(function()
     {   
