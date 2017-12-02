@@ -90,7 +90,8 @@ function appLogic()
         }
     }
 
-    $(".movieList").on("click", "img", function(){
+    $(".movieList").on("click", "img", function()
+    {
 
         //Hide movie disctiption if it is showing
         if (checkIsVisible($(".genrecontent")) === true) {
@@ -104,6 +105,13 @@ function appLogic()
         var movieTitle = thisScource.substring(23, thisScource.length-4);
         //alert("the movie title =" + movieTitle);
         $("#movieName").html(movieTitle);
+
+        $.getJSON("listMovieDetails?movieName=" + movieTitle, function(response)
+        {
+            console.log("response = " + response.year);
+            $('#year').html(response.year);
+    
+        });
 
         //edit img src
         var srcForLandscape = "/Movie Images/Landscape/" + movieTitle + ".jpg";
@@ -369,9 +377,6 @@ function appLogic()
 
     //another helpful means of building new complex elements: 
     //var $button = $('<button class="'+buttonClass+'">'+buttonText+'</button>');
-
-
-
 
     var moviesArray =
     [

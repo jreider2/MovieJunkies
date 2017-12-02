@@ -12,7 +12,7 @@ var bodyParser = require("body-parser");
 
 // getting-started.js
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/moviesdb', { useMongoClient: true });
 
 
 var server_port = 3000;
@@ -28,7 +28,7 @@ http.createServer(app).listen(server_port);
 // app.listen(server_port, function() {
 //     console.log("Listening on port : " + server_port);
 // });
-
+  
 app.get('/', function(req,res){
     res.sendFile(__dirname + '/views/index.html');
 });
@@ -71,3 +71,23 @@ app.post("/notes", function(req, res) {
       "message": "post complete to server"
     });
   });
+  
+  var movieSchema = mongoose.Schema
+  ({
+      "title":String,
+      "year":String,
+      "genre":String,
+      "decade": String,
+      "director": String,
+      "synopsis": String
+  });
+  
+  var movie = mongoose.model("movie", movieSchema);
+  app.get("/listMovieDetails",function(request, response) 
+  {
+    var movieName = request.query.movieName;
+    movie.findOne({ title : movieName}, function(error, result) 
+    {
+		response.json(result);
+	});
+});
