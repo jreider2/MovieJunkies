@@ -72,22 +72,51 @@ app.post("/notes", function(req, res) {
     });
   });
   
-  var movieSchema = mongoose.Schema
-  ({
+var movieSchema = mongoose.Schema
+({
       "title":String,
       "year":String,
       "genre":String,
       "decade": String,
       "director": String,
       "synopsis": String
-  });
+});
+
+var triviaSchema = mongoose.Schema
+({
+       "movie" : String,
+       "genre" : String,
+       "decade" : String,
+       "question1" : String,
+       "answer1" : [{type: String}],
+       "question2" : String,
+       "answer2" : [{type: String}],
+       "question3" : String,
+       "answer3" : [{type: String}],
+       "question4" : String,
+       "answer4" : [{type: String}],
+       "question5" : String,
+       "answer5" : [{type: String}],
+});
   
-  var movie = mongoose.model("movie", movieSchema);
-  app.get("/listMovieDetails",function(request, response) 
-  {
+var movie = mongoose.model("movie", movieSchema);
+  
+app.get("/listMovieDetails",function(request, response) 
+{
     var movieName = request.query.movieName;
     movie.findOne({ title : movieName}, function(error, result) 
     {
-		response.json(result);
+        response.json(result);
+	});
+});
+
+var trivia = mongoose.model("trivia", triviaSchema, "trivia"); //the last paramater forces mongoose to look for trivia and not trivias
+
+app.get("/movieTrivia", function(request, response)
+{
+    var movieName = request.query.movieName;
+    trivia.findOne({ movie : movieName}, function(error, result) 
+    {
+        response.json(result);
 	});
 });

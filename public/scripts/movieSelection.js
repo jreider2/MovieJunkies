@@ -5,6 +5,7 @@ function appLogic()
 
     $(".movieList").hide();
     $(".movieDiscription").hide();
+    $(".movieTrivia").hide();
 
     //check element visibility - expects single element relative to display:none
     function checkIsVisible(element) 
@@ -50,14 +51,14 @@ function appLogic()
         return $figTemp;
     }
 
-    function isGenre(category){
-        if(category == "80's" | category== "90's" | category == "2000's" | category == "2010-Current") //finish filling in all genres 
-        {
-            return false;// it is a decade 
-        }else{
-            return true;// it is a genre 
-        }
-    }
+    // function isGenre(category){
+    //     if(category == "80's" | category== "90's" | category == "2000's" | category == "2010-Current") //finish filling in all genres 
+    //     {
+    //         return false;// it is a decade 
+    //     }else{
+    //         return true;// it is a genre 
+    //     }
+    // }
 
     function createMovieSelection(genre)
     {
@@ -108,24 +109,16 @@ function appLogic()
 
         $.getJSON("listMovieDetails?movieName=" + movieTitle, function(response)
         {
-            console.log("response = " + response.year);
+            
             $('#year').html(response.year);
-    
+            $('#director').html(response.director);
+            $('#synopsis').html(response.synopsis);
+            $('#genre').html(response.genre);
         });
 
         //edit img src
         var srcForLandscape = "/Movie Images/Landscape/" + movieTitle + ".jpg";
         $("#imgDivOnMovieDiscriptionP img").attr("src", srcForLandscape);
-
-        var movieSynopsis = "Lorem ipsum dolor sit amet, ex" +
-        "amet erat theophrastus est, mentitum salutandi ne duo. Ei sed tota posse. "+
-        "At liber tollit accusata eam. Cum quidam euismod ne. Saepe aliquid interpretaris sea id, "+
-        "an ius facilis petentium, quis dolorum sit at. Liber delenit in cum, dolore minimum" +
-        "perfecto quo in, ea has adipisci argumentum. Lorem tamquam necessitatibus vim ea, "+ 
-        "semper deseruisse qui ut, ea mea aeque ornatus. Ei augue putant nam. Veritus ancillae argumentum vel ea. "+
-        "Qui ut utamur iuvaret consectetuer, cu saperet complectitur sed. Eu usu diceret vivendo iracundia. Sit cibo dictas "+
-        "molestiae at, erat rebum mnesarchum eum cu, dissentias contentiones in vim. Quem ancillae mentitum in per.";
-        $("#synopsis").html(movieSynopsis);
     
 
         //Hide anything else that may be visible
@@ -133,9 +126,9 @@ function appLogic()
             $(".movieList").hide();
         } // else remain hidden
 
-        if (checkIsVisible($(".genrecontent")) === true) {//check visibility of genrecontent
-            $(".genrecontent").hide();
-        } // else remain hidden
+        // if (checkIsVisible($(".genrecontent")) === true) {//check visibility of genrecontent
+        //     $(".genrecontent").hide();
+        // } // else remain hidden
 
         //Movie discription page fadeIn...
         $(".movieDiscription").fadeIn("slow");
@@ -146,6 +139,31 @@ function appLogic()
         // if (checkIsVisible($(".genrecontent")) === true) {
         //     $(".genrecontent").hide();
         // } // else remain hidden
+
+        $(".playGameButton").on("click", function()
+        {
+            // if (checkIsVisible($("#imgDivOnMovieDiscriptionP")) === true) 
+            // {
+            //     $("#imgDivOnMovieDiscriptionP").hide();
+            // } // else remain hidden
+    
+            if (checkIsVisible($("#temporaryDiv")) === true) 
+            {
+                $("#temporaryDiv").hide();
+            } // else remain hidden
+
+            $.getJSON("movieTrivia?movieName=" + movieTitle, function(response)
+            {   
+                $('#question').html(response.question1);
+                $.each(response.answer1, function(key, value)
+            {
+                console.log(value);
+            });
+
+            });
+    
+            $(".movieTrivia").show();
+        });
 
     });
 
