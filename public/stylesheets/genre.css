@@ -170,6 +170,21 @@ textarea:focus, input:focus{
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 2px;
 }
+#triviaHeading
+{
+  text-align: center;
+  font-family: 'Maven Pro', sans-serif;
+}
+.answerOptions
+{
+  font-family: 'Maven Pro', sans-serif;
+}
+.answerOptions:hover
+{
+  background-color: rgb(39, 158, 134); /* Green */
+  border: none;
+  color: white;
+}
 #comedy:hover
 {
   color: rgb(39, 158, 134);

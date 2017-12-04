@@ -155,11 +155,15 @@ function appLogic()
             $.getJSON("movieTrivia?movieName=" + movieTitle, function(response)
             {   
                 $('#question').html(response.question1);
-                $.each(response.answer1, function(key, value)
-            {
-                console.log(value);
-            });
-
+                $('#answer1').html(response.answer1[0]);
+                $('#answer2').html(response.answer1[1]);
+                $('#answer3').html(response.answer1[2]);
+                $('#answer4').html(response.answer1[3]);
+                $('#answer5').html(response.answer1[4]);
+                // $.each(response.answer1, function(key, value)
+                // {
+                //     console.log(value);
+                // });
             });
     
             $(".movieTrivia").show();
