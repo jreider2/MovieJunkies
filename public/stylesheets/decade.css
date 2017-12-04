@@ -33,7 +33,7 @@ form{
   line-height: 15vh;
 }
 .navlinks > a{
-  font-family: "Helvetica-light";
+  font-family: 'Maven Pro', sans-serif;
   font-size: 2vw;
   text-decoration: none;
   color: white;
@@ -73,7 +73,7 @@ textarea:focus, input:focus{
 }
 .login > a{
   color: white;
-  font-family: "Helvetica-light";
+  font-family: 'Maven Pro', sans-serif;
   font-size: 1.5vw;
 }
 .login > a:hover {
@@ -110,7 +110,7 @@ textarea:focus, input:focus{
   background-image: url("/images/hypnotize.png");
   background-repeat: repeat;
   text-align: center;
-  font-family: "Helvetica-light";
+  font-family: 'Maven Pro', sans-serif;
   font-size: 3vw;
   line-height: 25vh;
 }
@@ -134,7 +134,7 @@ textarea:focus, input:focus{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 25% 75%;
-  font-family: "Helvetica-light";
+  font-family: 'Maven Pro', sans-serif;
   font-size: 3vw;
   text-align: center;
   /*background-color: RGB(39, 158, 134);*/
