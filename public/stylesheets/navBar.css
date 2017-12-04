@@ -41,7 +41,7 @@
   }
   .navlinks > a
   {
-    font-family: "Helvetica-light";
+    font-family: 'Maven Pro', sans-serif;
     font-size: 2vw;
     text-decoration: none;
     color: white;
@@ -90,7 +90,7 @@
 
   {
     color: white;
-    font-family: "Helvetica-light";
+    font-family: 'Maven Pro', sans-serif;
     font-size: 1.5vw;
   }
   .login > a:hover 

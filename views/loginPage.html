@@ -15,18 +15,18 @@
         <figure class="icon">
             <img class="popcorn" src="/images/food.svg">
         </figure>
-        <h1 id="title">Movie Junkies</h1>
+        <a id="titleLink" href="/"><h1 id="title">Movie Junkies</h1> </a>
     </header>
     <main>
         <form class="flex-container2">
             <div class="flex-container flex-item2">
                 <div></div>
-                <div class="signInDiv g-signin2 flex-item" data-onsuccess="onSignIn"></div>
+                <div id="signIn" class="signInDiv g-signin2 flex-item" data-onsuccess="onSignIn"></div>
                 <div></div>
             </div>
             <br>
-            <div id="signOut button flex-item2" href="#" onclick="signOut();">Sign out</div>
-            <div class="button flex-item2" href="/">Main Page</div>
+            <div id="signOut" class="button flex-item2" href="#" onclick="signOut();">Sign out</div>
+            <a href="/" class="button flex-item2">Main Page</a>
         </form>
     </main>
     <script>
@@ -60,7 +60,7 @@
             });
     }
     </script>
-    <!--<script type="text/javascript" src="/scripts/sign.js" ></script> -->
+    <script type="text/javascript" src="/scripts/sign.js" ></script>
     
 </body>
 </html>
