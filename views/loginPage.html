@@ -40,23 +40,9 @@
     </main>
     <script>
 
-        //alert("this is called");
-        // if(googleUser == undefined){
-        //     alert("undefined :D")
-        // }
-        // if (typeof googleUser == 'undefined'){
-        //     alert("it worked");
-        // }else{
-        //     alert("defined!");
-        // }
-       // gapi.auth2.getAuthInstance();
-        //alert("goo
-
         if( isVisible($("#signOut"))){
                 $("#signOut").hide();
-                //alert("sign out is visible ");
         }
-
 
         function isVisible(element) 
         {
@@ -81,58 +67,32 @@
                 console.log( data.status ); // John
             }, "json");
 
-            if( isVisible($("#signIn"))){
-                $("#signIn").hide();
-                //alert("sign in is visible ");
+            if( isVisible($("#signIn"))){ 
+                $("#signIn").hide(); //hide sign in btn.
             }
 
-            $("#signOut").fadeIn("slow");
-
-            // //post new note to server TEST 
-            // var newNote = {"created":"createdText", "note":"noteText"};
-            // $.post("notes", newNote, function (response) {
-            //     console.log("server post response returned..." + response.message);
-            // });
+            $("#signOut").fadeIn("slow"); //show sign out btn. 
 
         }
 
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
-            //console.log(auth2.getId() + " = id of person who signed out.");\
-            //console.log(id+ " = id of person who signed out.");
+            //console.log(auth2.getId() + " = id of person who signed out.");
 
             //sign out from google. 
             auth2.signOut().then(function () {
-
                 console.log('User signed out.');
             });
-
+            
             if( isVisible($("#signOut"))){
-                $("#signOut").hide();
-                //alert("sign out is visible ");
+                $("#signOut").hide();//hide sign out btn 
             }
-            $("#signIn").fadeIn("slow");
-
-            // $.post("checkCurrentUsers", function (response) {
-            //     //will get back a list of current users. 
-            //     //console.log("response = "+ response);
-            //     //if the correct user is currently signed in
-            //     //sign out 
-            //     //in the js script, use this post mehtod to check if the user if signed in. 
-            //     //if users is signed in then hide sign in button, otherwise 
-            //     //hide sign out button. ?? 
-            //     //buildNote(response);
-            // })
-            //post to the index.js -teling it user is signing out!
+            $("#signIn").fadeIn("slow"); //show sign in btn 
 
         }
 
     </script>
-    <script>
-        
-        
-    </script>
-    <script type="text/javascript" src="/scripts/signInSignOut.js" ></script>
+    <!-- <script type="text/javascript" src="/scripts/signInSignOut.js" ></script> -->
     
 </body>
 </html>
