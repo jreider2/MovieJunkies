@@ -17,6 +17,13 @@ mongoose.connect('mongodb://localhost/moviesdb', { useMongoClient: true });
 
 var server_port = 3000;
 
+// var users = {
+//     "userStatus": [{
+//     "id": "fakeID1234",
+//     "isSignedIn": false
+//     }]
+// };
+
 //set as static file server...
 app.use(express.static(__dirname + '/public'));
 
@@ -50,27 +57,60 @@ app.post("/userIdPost", function(req, res) {
     //console.log("Routing to examplePost post request reached.");//msg to terminal 
     console.log(req.body); //print ID to console. 
     if (req.body !== undefined){ // check if undefined
+       // var currentUser = req.body;
+        //push new note to JSON
+        //users["userStatus"].push(currentUser);
+        //return simple JSON object
+        // res.json({
+        // "message": "post complete to server"
+        // });
+        //console.log(users);
+        //console.log(users["userStatus"]);
+
         res.send({ status: "Success" });
     }
     else{
         //send fail response
         res.send({ status: "failure" });
     }
+
+    // if the user isn't in user array: it's a new user
+    //push them to array
+    //sign = true
+
+    //if user is in array
+    //sign in = true
+
     //res.send({ status: "Success" });
 });
 
+//create post route for sign out, sending ID again 
+//find user with correct ID
+//setting user with correct id to sign in = false .
+//
+// app.get("/users.json", function(req, res) {
+//     res.json(users);
+//     //res.send(users);
+// });
+
+// app.post("/checkCurrentUsers", function(req, res) {
+//     res.send(users["userStatus"]);
+//     console.log("/checkCurrentUsers reached ");
+// });
+
+
 //testing how to use a post route 
-app.post("/notes", function(req, res) {
+app.post("/users", function(req, res) {
     //store new object in req.body
-    var newNote = req.body;
-    console.log(newNote);
+    var currentUser = req.body;
+    console.log(currentUser);
     //push new note to JSON
-    //notes["travelNotes"].push(newNote);
+    //users["userStatus"].push(currentUser);
     //return simple JSON object
     res.json({
       "message": "post complete to server"
     });
-  });
+});
   
 var movieSchema = mongoose.Schema
 ({
