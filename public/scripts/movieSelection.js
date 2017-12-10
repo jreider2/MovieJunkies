@@ -34,7 +34,6 @@ function appLogic()
 
     function createFigure(imgSrc) 
     {
-        
         //create image element
         var $imgTemp = $("<img>"); 
         //add src attribute with correct path
@@ -91,85 +90,74 @@ function appLogic()
         }
     }
 
+    function populateMvDescrption(mvTitle){
+
+        $("#movieName").html(mvTitle); //edit heading for correct movieList section Heading
+
+        $.getJSON("listMovieDetails?movieName=" + mvTitle).done(function(response)
+        {
+            $('#year').html(response.year);
+            $('#director').html(response.director);
+            $('#synopsis').html(response.synopsis);
+            $('#genre').html(response.genre);
+        }); 
+
+        //edit portrate img src to build landscape image src
+        var srcForLandscape = "/Movie Images/Landscape/" + mvTitle + ".jpg";
+        $("#imgDivOnMovieDiscriptionP img").attr("src", srcForLandscape);
+
+    }
+
+    function populateTriviaSection(mvTitle){
+        $.getJSON("movieTrivia?movieName=" + mvTitle).done(function(response)
+        {   
+            $('#question').html(response.question1);
+            $('#answer1').html(response.answer1[0]);
+            $('#answer2').html(response.answer1[1]);
+            $('#answer3').html(response.answer1[2]);
+            $('#answer4').html(response.answer1[3]);
+            $('#answer5').html(response.answer1[4]);
+            
+        });
+    }
+
     $(".movieList").on("click", "img", function()
     {
-
         //Hide movie disctiption if it is showing
         if (checkIsVisible($(".genrecontent")) === true) {
             $(".genrecontent").hide();
         } // else remain hidden
 
-        //abstract to movie discription page function:
-
-        //edit heading for correct movieList section Heading
-        var thisScource= $(this).attr("src"); //alert("This source = " + thisScource);
+        //build movie title from img src
+        var thisScource= $(this).attr("src"); 
         var movieTitle = thisScource.substring(23, thisScource.length-4);
-        //alert("the movie title =" + movieTitle);
-        $("#movieName").html(movieTitle);
 
-        $.getJSON("listMovieDetails?movieName=" + movieTitle, function(response)
-        {
-            
-            $('#year').html(response.year);
-            $('#director').html(response.director);
-            $('#synopsis').html(response.synopsis);
-            $('#genre').html(response.genre);
-        });
-
-        //edit img src
-        var srcForLandscape = "/Movie Images/Landscape/" + movieTitle + ".jpg";
-        $("#imgDivOnMovieDiscriptionP img").attr("src", srcForLandscape);
+        populateMvDescrption(movieTitle);
     
-
-        //Hide anything else that may be visible
+        //Hide movie list
         if (checkIsVisible($(".movieList")) === true) {//check visibility of movie list 
             $(".movieList").hide();
         } // else remain hidden
 
-        // if (checkIsVisible($(".genrecontent")) === true) {//check visibility of genrecontent
-        //     $(".genrecontent").hide();
-        // } // else remain hidden
-
         //Movie discription page fadeIn...
         $(".movieDiscription").fadeIn("slow");
-        //$(this).slideToggle();
-
-        //TODO: need to add hiding for movie desption section to pattern for other listeners: 
-        //this code: 
-        // if (checkIsVisible($(".genrecontent")) === true) {
-        //     $(".genrecontent").hide();
-        // } // else remain hidden
-
-        $(".playGameButton").on("click", function()
-        {
-            // if (checkIsVisible($("#imgDivOnMovieDiscriptionP")) === true) 
-            // {
-            //     $("#imgDivOnMovieDiscriptionP").hide();
-            // } // else remain hidden
-    
-            if (checkIsVisible($("#temporaryDiv")) === true) 
-            {
-                $("#temporaryDiv").hide();
-            } // else remain hidden
-
-            $.getJSON("movieTrivia?movieName=" + movieTitle, function(response)
-            {   
-                $('#question').html(response.question1);
-                $('#answer1').html(response.answer1[0]);
-                $('#answer2').html(response.answer1[1]);
-                $('#answer3').html(response.answer1[2]);
-                $('#answer4').html(response.answer1[3]);
-                $('#answer5').html(response.answer1[4]);
-                // $.each(response.answer1, function(key, value)
-                // {
-                //     console.log(value);
-                // });
-            });
-    
-            $(".movieTrivia").show();
-        });
 
     });
+
+    $(".playGameButton").on("click", function()
+    {
+        var mvTtl = $("#movieName").html();
+        //alert(mvTtl);
+        populateTriviaSection(mvTtl);
+
+        if (checkIsVisible($("#temporaryDiv")) === true) 
+        {
+            $("#temporaryDiv").hide();
+        } // else remain hidden
+
+        $(".movieTrivia").show();
+    });
+
 
     $("#horror").click(function()
     {   
