@@ -62,8 +62,8 @@ function appLogic()
     function createMovieSelection(genre)
     {
         //TODO use isGenre function 
-            //if it is a genre only look at genre attribute 
-            //if it is a decade only look at the decade attribute 
+        //if it is a genre only look at genre attribute 
+        //if it is a decade only look at the decade attribute 
 
         for(var i = 0; i < moviesArray.length; i++)
         {
@@ -78,11 +78,10 @@ function appLogic()
             }
 
             //This is used for the decade loop
-
             if(moviesArray[i].decade == genre)
             {
-                 //create figure element 
-                 var figTemp = createFigure(moviesArray[i].portrait);
+                //create figure element 
+                var figTemp = createFigure(moviesArray[i].portrait);
                  
                 //append to DOM
                 $("#imageGrid").append(figTemp);
@@ -158,219 +157,78 @@ function appLogic()
         $(".movieTrivia").show();
     });
 
+    //TODO: refactor to another function. perhaps called : transitionToNewSlection
+    function transitionToNewSlection(genr){
+        alert("working!! Bea!");
 
-    $("#horror").click(function()
-    {   
-        //TODO: refactor to another function. perhaps called : transitionToNewSlection
-
-        //check visibility of movie list 
-        if (checkIsVisible($(".movieList")) === true) {
+        if (checkIsVisible($(".movieList")) === true) {//check visibility of movie list 
             $(".movieList").hide();
         } // else remain hidden
+        
+        createMovieSelection(genr);//append images from horror to imageGrid in DOM
 
-        //check if any images currently exist there 
-        //TODO -- use checkExist() function already written above 
-        //if images exist, delete them all
-            //see "handle delection of all notes" section in hayward github week11/travel-notes-series3/demo2/assets/scrits/travel.js for detail"
-
-        //append images from horror to imageGrid in DOM
-        createMovieSelection('Horror');
-
-        //edit heading for correct movieList section Heading
-        $("#movieListGenreHeading").html("Horror");
-
-        //Hide genre categories if they are showing
+        $("#movieListGenreHeading").html(genr);//edit heading for correct movieList section Heading
+        
         if (checkIsVisible($(".genrecontent")) === true) {
-            $(".genrecontent").hide();
+            $(".genrecontent").hide();//Hide genre categories if they are showing
         } // else remain hidden
 
-        //Image grid fadeIn...
-        $(".movieList").fadeIn("slow");
+        $(".movieList").fadeIn("slow");//Image grid fadeIn...
 
+    }
+
+    //genre section listeners 
+
+    $("#horror").click(function()
+    {
+        transitionToNewSlection('Horror');
     });
 
     $("#action").click(function()
     {   
-        
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        } 
-
-        createMovieSelection('Action/Adventure');
-
-        $("#movieListGenreHeading").html("Action/Adventure");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        } 
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection('Action/Adventure');
     });
 
     $("#comedy").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        } 
-
-        createMovieSelection('Comedy');
-
-        $("#movieListGenreHeading").html("Comedy");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        } 
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("Comedy");
     });
 
     $("#thriller").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection('Thriller');
-       
-        $("#movieListGenreHeading").html("Thriller");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        } 
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("Thriller");
     });
 
     $("#sci-fi").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        } 
-
-        createMovieSelection('Sci-Fi');
-
-        $("#movieListGenreHeading").html("Sci-Fi");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("Sci-Fi");
     });
 
     $("#drama").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection('Drama');
-
-        $("#movieListGenreHeading").html("Drama");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("Drama");
     });
 
-
-    // used for decade images
+    // decade section listeners
 
     $("#_80s").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection("80's");
-
-        $("#movieListGenreHeading").html("80's");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("80's");
     });
 
     $("#_90s").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection("90's");
-
-        $("#movieListGenreHeading").html("90's");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("90's");
     });
 
     $("#_2000s").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection("2000's");
-
-        $("#movieListGenreHeading").html("2000's");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("2000's");
     });
 
     $("#_2010-Current").click(function()
     {   
-        if (checkIsVisible($(".movieList")) === true) 
-        {
-            $(".movieList").hide();
-        }
-
-        createMovieSelection("2010-Current");
-
-        $("#movieListGenreHeading").html("2010-Current");
-
-        if (checkIsVisible($(".genrecontent")) === true) 
-        {
-            $(".genrecontent").hide();
-        }
-
-        $(".movieList").fadeIn("slow");
-
+        transitionToNewSlection("2010-Current");
     });
 
     //This is a good example of how to create handlers for
