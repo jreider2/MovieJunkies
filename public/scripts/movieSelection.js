@@ -19,19 +19,6 @@ function appLogic()
         }
     }
 
-    //check elements exists
-    function checkExist(element) 
-    {
-        //check specified elements or not - return boolean
-        if (element.length) 
-        {
-            return true;
-        } else 
-        {
-            return false;
-        }
-    }
-
     function createFigure(imgSrc) 
     {
         //create image element
@@ -146,7 +133,6 @@ function appLogic()
     $(".playGameButton").on("click", function()
     {
         var mvTtl = $("#movieName").html();
-        //alert(mvTtl);
         populateTriviaSection(mvTtl);
 
         if (checkIsVisible($("#temporaryDiv")) === true) 
@@ -159,7 +145,7 @@ function appLogic()
 
     //TODO: refactor to another function. perhaps called : transitionToNewSlection
     function transitionToNewSlection(genr){
-        alert("working!! Bea!");
+        //alert("It's workin' Bea!");
 
         if (checkIsVisible($(".movieList")) === true) {//check visibility of movie list 
             $(".movieList").hide();
@@ -245,6 +231,19 @@ function appLogic()
 
     //another helpful means of building new complex elements: 
     //var $button = $('<button class="'+buttonClass+'">'+buttonText+'</button>');
+
+    //check elements exists
+    function checkExist(element) 
+    {
+        //check specified elements or not - return boolean
+        if (element.length) 
+        {
+            return true;
+        } else 
+        {
+            return false;
+        }
+    }
 
     var moviesArray =
     [
