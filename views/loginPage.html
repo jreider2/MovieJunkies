@@ -21,9 +21,12 @@
 </head>
 <body>
     <header>
-        <figure class="icon">
-            <img class="popcorn" src="/images/food.svg">
-        </figure>
+        <a href="/">
+            <figure class="icon">
+                <img class="popcorn" src="/images/food.svg">
+            </figure>
+        </a>
+        
         <a id="titleLink" href="/"><h1 id="title">Movie Junkies</h1> </a>
     </header>
     <main>
@@ -58,7 +61,7 @@
         function onSignIn(googleUser) {
             // Useful data for your client-side scripts:
             var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('ID: ' + profile.getId()); 
             //console.log('Name: ' + profile.getName());
             //console.log('Image URL: ' + profile.getImageUrl());
             //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
