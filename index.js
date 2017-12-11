@@ -46,8 +46,7 @@ app.get('/genre/horror', function(req,res) {
 });
 
 //Recieve id from sign in 
-app.post("/userIdPost", function(req, res) {
-    //console.log("Routing to examplePost post request reached.");//msg to terminal 
+app.post("/userIdPost", function(req, res) { 
     console.log(req.body); //print ID to console. 
     if (req.body !== undefined){ // check if undefined
         res.send({ status: "Success" });
@@ -56,21 +55,22 @@ app.post("/userIdPost", function(req, res) {
         //send fail response
         res.send({ status: "failure" });
     }
-    //res.send({ status: "Success" });
+
 });
 
+
 //testing how to use a post route 
-app.post("/notes", function(req, res) {
+app.post("/users", function(req, res) {
     //store new object in req.body
-    var newNote = req.body;
-    console.log(newNote);
+    var currentUser = req.body;
+    console.log(currentUser);
     //push new note to JSON
-    //notes["travelNotes"].push(newNote);
+    //users["userStatus"].push(currentUser);
     //return simple JSON object
     res.json({
       "message": "post complete to server"
     });
-  });
+});
   
 var movieSchema = mongoose.Schema
 ({

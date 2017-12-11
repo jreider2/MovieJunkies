@@ -7,60 +7,95 @@
     <meta name="google-signin-client_id" content="332330513278-7uboe8hl0v0cdnan6orf83opb3p29j9m.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <!-- <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script> -->
+
     <title>MovieJunkiesLogin</title>
     <link rel="stylesheet" href="./stylesheets/loginPageStyle.css">
 </head>
 <body>
     <header>
-        <figure class="icon">
-            <img class="popcorn" src="/images/food.svg">
-        </figure>
+        <a href="/">
+            <figure class="icon">
+                <img class="popcorn" src="/images/food.svg">
+            </figure>
+        </a>
+        
         <a id="titleLink" href="/"><h1 id="title">Movie Junkies</h1> </a>
     </header>
     <main>
         <form class="flex-container2">
             <div class="flex-container flex-item2">
                 <div></div>
-                <div id="signIn" class="signInDiv g-signin2 flex-item" data-onsuccess="onSignIn"></div>
+                <div id="signIn" class="signInDiv g-signin2 flex-item notSignedIn" data-onsuccess="onSignIn"></div>
                 <div></div>
             </div>
             <br>
             <div id="signOut" class="button flex-item2" href="#" onclick="signOut();">Sign out</div>
-            <a href="/" class="button flex-item2">Main Page</a>
+            <a id="mainPageBtn" href="/" class="button flex-item2">Main Page</a>
         </form>
     </main>
     <script>
+
+        if( isVisible($("#signOut"))){
+                $("#signOut").hide();
+        }
+
+        function isVisible(element) 
+        {
+            //check if element is hidden or not
+            if (element.is(":hidden")) 
+            {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
         function onSignIn(googleUser) {
             // Useful data for your client-side scripts:
             var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            console.log('ID: ' + profile.getId()); 
+            //console.log('Name: ' + profile.getName());
+            //console.log('Image URL: ' + profile.getImageUrl());
+            //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
             
-            //var id = profile.getId();
-            //var profileId = {"id":profile.getId()};
-            $.post( "userIdPost", {"id":profile.getId()}, function( data ) { //see jQuery docs for sending an array
+            $.post( "userIdPost", {"id":profile.getId() , "isSignedIn": true }, function( data ) { //see jQuery docs for sending an array
                 console.log( data.status ); // John
             }, "json");
 
-            // //post new note to server TEST 
-            // var newNote = {"created":"createdText", "note":"noteText"};
-            // $.post("notes", newNote, function (response) {
-            //     console.log("server post response returned..." + response.message);
-            // });
+            if( isVisible($("#signIn"))){ 
+                $("#signIn").hide(); //hide sign in btn.
+            }
+
+            $("#signOut").fadeIn("slow"); //show sign out btn. 
 
         }
-    </script>
-    <script>
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            //console.log(auth2.getId() + " = id of person who signed out.");
+
+            //sign out from google. 
             auth2.signOut().then(function () {
                 console.log('User signed out.');
             });
-    }
+            
+            if( isVisible($("#signOut"))){
+                $("#signOut").hide();//hide sign out btn 
+            }
+            $("#signIn").fadeIn("slow"); //show sign in btn 
+
+        }
+
     </script>
-    <script type="text/javascript" src="/scripts/sign.js" ></script>
+    <!-- <script type="text/javascript" src="/scripts/signInSignOut.js" ></script> -->
     
 </body>
 </html>
